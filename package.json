@@ -1,0 +1,19 @@
+{
+  "name": "site-monitor",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w apps/api",
+    "dev:worker": "npm run dev -w apps/worker",
+    "dev:web": "npm run dev -w apps/web",
+    "migrate": "npm run migrate -w apps/api",
+    "build": "npm run build -w packages/shared && npm run build -w apps/api && npm run build -w apps/worker && npm run build -w apps/web",
+    "typecheck": "npm run typecheck -w apps/api && npm run typecheck -w apps/worker && npm run typecheck -w apps/web"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
